@@ -9,7 +9,7 @@ const serverlessConfiguration: AWS = {
   service: 'chatAppApi',
   frameworkVersion: '3',
 
-  plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local'],
+  plugins: ['serverless-esbuild'],
   custom: {
     tables: {
       singleTable: '${sls:stage}-${self:service}-single-table',
