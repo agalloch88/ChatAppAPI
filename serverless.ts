@@ -15,17 +15,10 @@ const serverlessConfiguration: AWS = {
       singleTable: '${sls:stage}-${self:service}-single-table',
     },
     profile: {
-      dev: 'dev-profile',
+      dev: 'serverlessUser',
       int: 'int-profile',
       prod: 'prod-profile',
     },
-    clientOrigins: {
-      dev: 'https://dev.flights.com',
-      int: 'https://int.flights.com',
-      prod: 'https://prod.flights.com',
-    },
-    assetBucketName: '${sls:stage}-${self:service}-s3-assets',
-
     esbuild: {
       bundle: true,
       minify: false,
@@ -35,25 +28,6 @@ const serverlessConfiguration: AWS = {
       define: { 'require.resolve': undefined },
       platform: 'node',
       concurrency: 10,
-    },
-    dynamodb: {
-      stages: ['dev'],
-      start: {
-        port: 8005,
-        inMemory: true,
-        migrate: true,
-        seed: true,
-      },
-      seed: {
-        dev: {
-          sources: [
-            {
-              table: '${self:custom.tables.singleTable}',
-              sources: ['serverless/seedData/flights.json'],
-            },
-          ],
-        },
-      },
     },
   },
   provider: {
