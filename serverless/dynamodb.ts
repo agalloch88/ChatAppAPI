@@ -52,6 +52,22 @@ const DynamoResources: AWS['resources']['Resources'] = {
             ProjectionType: 'ALL',
           },
         },
+        {
+          IndexName: 'index2',
+          KeySchema: [
+            {
+              AttributeName: 'pk2',
+              KeyType: 'HASH',
+            },
+            {
+              AttributeName: 'sk2',
+              KeyType: 'RANGE',
+            },
+          ],
+          Projection: {
+            ProjectionType: 'ALL',
+          },
+        },
       ],
     },
   },
