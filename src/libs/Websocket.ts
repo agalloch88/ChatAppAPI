@@ -2,7 +2,7 @@ import {
   ApiGatewayManagementApi,
   PostToConnectionCommand,
   PostToConnectionCommandInput,
-} from 'aws-sdk/client-apigatewaymanagementapi';
+} from '@aws-sdk/client-apigatewaymanagementapi';
 
 export const websocket = {
   createClient: ({
